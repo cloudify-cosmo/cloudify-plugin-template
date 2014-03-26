@@ -2,7 +2,7 @@
 
 # C extensions
 *.so
-
+*.iml
 # Packages
 *.egg
 *.egg-info
