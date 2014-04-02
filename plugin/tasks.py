@@ -17,6 +17,7 @@ from cloudify.decorators import operation
 
 __author__ = 'elip'
 
+
 @operation
 def my_task(ctx, **kwargs):
     pass

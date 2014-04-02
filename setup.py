@@ -17,11 +17,10 @@ __author__ = 'elip'
 
 from setuptools import setup
 
-COSMO_CELERY_VERSION = "0.3"
-COSMO_CELERY_BRANCH = "develop"
-COSMO_CELERY = "https://github.com/CloudifySource" \
-               "/cosmo-celery-common/tarball/{0}"\
-               .format(COSMO_CELERY_BRANCH)
+PLUGINS_COMMON_VERSION = '3.0'
+PLUGINS_COMMON_BRANCH = "develop"
+PLUGINS_COMMON = 'https://github.com/cloudify-cosmo/cloudify-plugins-common' \
+    '/tarball/{0}'.format(PLUGINS_COMMON_BRANCH)
 
 # Replace the place holders with values for your project
 
@@ -35,11 +34,12 @@ setup(
     description='${DESCRIPTION}',
     zip_safe=False,
     install_requires=[
-        "cosmo-celery-common"  # Necessary dependency for developing plugins. do not remove
+        # Necessary dependency for developing plugins, do not remove!
+        "cloudify-plugins-common"
     ],
     test_requires=[
         "nose"
     ],
-    dependency_links=["{0}#egg=cosmo-celery-common-{1}"
-                      .format(COSMO_CELERY, COSMO_CELERY_VERSION)]
+    dependency_links=["{0}#egg=cloudify-plugins-common-{1}"
+                      .format(PLUGINS_COMMON, PLUGINS_COMMON_VERSION)]
 )

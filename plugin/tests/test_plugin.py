@@ -21,6 +21,3 @@ class TestPlugin(unittest.TestCase):
         ###################
         # Asserts go here #
         ###################
-
-
-
