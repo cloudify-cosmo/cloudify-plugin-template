@@ -25,11 +25,18 @@ PLUGINS_COMMON = 'https://github.com/cloudify-cosmo/cloudify-plugins-common' \
 # Replace the place holders with values for your project
 
 setup(
+
+    # Do not use underscores in the plugin name.
     name='${PLUGIN_NAME}',
+
     version='${VERSION}',
     author='${AUTHOR}',
     author_email='${AUTHOR_EMAIL}',
+
+    # This must correspond to the actual packages in the plugin.
+    # It will also serve as the plugin prefix for mapping operations to tasks.
     packages=['plugin'],
+
     license='LICENSE',
     description='${DESCRIPTION}',
     zip_safe=False,
@@ -40,6 +47,8 @@ setup(
     test_requires=[
         "nose"
     ],
+
+    # Necessary dependency for developing plugins, do not remove!
     dependency_links=["{0}#egg=cloudify-plugins-common-{1}"
                       .format(PLUGINS_COMMON, PLUGINS_COMMON_VERSION)]
 )
