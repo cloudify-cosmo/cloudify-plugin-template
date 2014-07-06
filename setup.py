@@ -17,11 +17,6 @@ __author__ = 'elip'
 
 from setuptools import setup
 
-PLUGINS_COMMON_VERSION = '3.0'
-PLUGINS_COMMON_BRANCH = "develop"
-PLUGINS_COMMON = 'https://github.com/cloudify-cosmo/cloudify-plugins-common' \
-    '/tarball/{0}'.format(PLUGINS_COMMON_BRANCH)
-
 # Replace the place holders with values for your project
 
 setup(
@@ -42,13 +37,9 @@ setup(
     zip_safe=False,
     install_requires=[
         # Necessary dependency for developing plugins, do not remove!
-        "cloudify-plugins-common"
+        "cloudify-plugins-common>=3.0"
     ],
     test_requires=[
         "nose"
-    ],
-
-    # Necessary dependency for developing plugins, do not remove!
-    dependency_links=["{0}#egg=cloudify-plugins-common-{1}"
-                      .format(PLUGINS_COMMON, PLUGINS_COMMON_VERSION)]
+    ]
 )
