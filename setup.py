@@ -22,18 +22,18 @@ from setuptools import setup
 setup(
 
     # Do not use underscores in the plugin name.
-    name='${PLUGIN_NAME}',
+    name='ENTER-PLUGIN-NAME-HERE',
 
-    version='${VERSION}',
-    author='${AUTHOR}',
-    author_email='${AUTHOR_EMAIL}',
+    version='ENTER-VERSION-HERE',
+    author='ENTER-AUTHOR-HERE',
+    author_email='ENTER-AUTHOR-EMAIL-HERE',
+    description='ENTER-DESCRIPTION-HERE',
 
     # This must correspond to the actual packages in the plugin.
     # It will also serve as the plugin prefix for mapping operations to tasks.
     packages=['plugin'],
 
-    license='LICENSE',
-    description='${DESCRIPTION}',
+    license='LICENSE',    
     zip_safe=False,
     install_requires=[
         # Necessary dependency for developing plugins, do not remove!
