@@ -1,1 +1,1 @@
-__author__ = 'elip'
+__author__ = 'ENTER-AUTHOR-NAME-HERE'

@@ -13,7 +13,7 @@
 #    * See the License for the specific language governing permissions and
 #    * limitations under the License.
 
-__author__ = 'elip'
+__author__ = 'ENTER-AUTHOR-NAME-HERE'
 
 from setuptools import setup
 

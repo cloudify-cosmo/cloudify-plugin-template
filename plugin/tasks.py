@@ -15,7 +15,7 @@
 
 from cloudify.decorators import operation
 
-__author__ = 'elip'
+__author__ = 'ENTER-AUTHOR-NAME-HERE'
 
 
 @operation

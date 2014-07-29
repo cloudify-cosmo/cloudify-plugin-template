@@ -1,6 +1,6 @@
 import unittest
 
-__author__ = 'elip'
+__author__ = 'ENTER-AUTHOR-NAME-HERE'
 
 
 class TestPlugin(unittest.TestCase):
