@@ -24,7 +24,7 @@ setup(
     # Do not use underscores in the plugin name.
     name='ENTER-PLUGIN-NAME-HERE',
 
-    version='ENTER-VERSION-HERE',
+    version='3.1a1',
     author='ENTER-AUTHOR-HERE',
     author_email='ENTER-AUTHOR-EMAIL-HERE',
     description='ENTER-DESCRIPTION-HERE',
