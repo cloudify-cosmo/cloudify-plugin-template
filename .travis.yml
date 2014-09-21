@@ -1,0 +1,12 @@
+language: python
+python:
+  - "2.7"
+
+install:
+    pip install flake8
+
+script:
+    flake8 .
+
+notifications:
+    flowdock: 1f4ec6febcf1ac9b35ae6c1f0049471f

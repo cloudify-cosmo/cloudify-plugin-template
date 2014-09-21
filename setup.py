@@ -13,7 +13,6 @@
 #    * See the License for the specific language governing permissions and
 #    * limitations under the License.
 
-__author__ = 'ENTER-AUTHOR-NAME-HERE'
 
 from setuptools import setup
 
@@ -32,12 +31,11 @@ setup(
     # This must correspond to the actual packages in the plugin.
     # It will also serve as the plugin prefix for mapping operations to tasks.
     packages=['plugin'],
-
-    license='LICENSE',    
+    license='LICENSE',
     zip_safe=False,
     install_requires=[
         # Necessary dependency for developing plugins, do not remove!
-        "cloudify-plugins-common>=3.0"
+        "cloudify-plugins-common==3.1a4"
     ],
     test_requires=[
         "nose"
