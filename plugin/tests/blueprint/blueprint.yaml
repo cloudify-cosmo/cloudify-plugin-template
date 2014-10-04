@@ -8,19 +8,13 @@ imports:
     # including it in the blueprint directory and importing it
     # instead.
     - http://www.getcloudify.org/spec/cloudify/3.1/types.yaml
-
+    - plugin.yaml
 
 inputs:
     # example input that could be injected by test
     test_input:
         description: an input for the test
         default: default_test_input
-
-outputs:
-    # example output the could be used to simplify assertions by test
-    test_output:
-        description: an output for the test
-        value: { get_attribute: [test_node_template, value_of_some_property]}
 
 node_templates:
     # defining a single node template that will serve as our test node
@@ -40,24 +34,8 @@ node_templates:
                         # (or 'default_test_input' if no input was provided)
                         some_property: { get_input: test_input }
 
-plugins:
-    # Name could be anything, this name is what appears on the beginning of operation
-    # mappings. Usually, the actual plugin definition will exists in a dedicated plugin.yaml
-    # where the type and source of the plugin are defined
-    plugin_name:
-        # Could be 'central_deployment_agent' or 'host_agent'.
-        # If 'central_deployment_agent', this plugin will be executed on the
-        # deployment dedicated agent, other wise it will be executed on the host agent.
-        # We set it the 'central_deployment_agent' here because 'host_agent' plugins should
-        # be contained in a host and this is not required for testing purposes
-        executor: central_deployment_agent
-
-        # Setting install to false in testing environment. In the non-test plugin definition
-        # this property could be omitted usually (its default is true), in which case
-        # the source property should be set
-        install: false
-
-        # source: url to archive containting the plugin or name of directory containing
-        #         the plugin if it is included in the the blueprint directory under the
-        #         "plugins" directory. Not required in testing environments as the plugin
-        #         need not be installed on any agent
+outputs:
+    # example output the could be used to simplify assertions by test
+    test_output:
+        description: an output for the test
+        value: { get_attribute: [test_node_template, value_of_some_property]}
