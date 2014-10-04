@@ -19,6 +19,7 @@ import unittest
 
 from cloudify.workflows import local
 
+
 class TestPlugin(unittest.TestCase):
 
     def setUp(self):
