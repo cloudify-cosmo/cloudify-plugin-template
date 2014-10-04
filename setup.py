@@ -23,14 +23,14 @@ setup(
     # Do not use underscores in the plugin name.
     name='ENTER-PLUGIN-NAME-HERE',
 
-    version='3.1a4',
+    version='0.1',
     author='ENTER-AUTHOR-HERE',
     author_email='ENTER-AUTHOR-EMAIL-HERE',
     description='ENTER-DESCRIPTION-HERE',
 
     # This must correspond to the actual packages in the plugin.
-    # It will also serve as the plugin prefix for mapping operations to tasks.
     packages=['plugin'],
+
     license='LICENSE',
     zip_safe=False,
     install_requires=[
@@ -38,6 +38,7 @@ setup(
         "cloudify-plugins-common==3.1a4"
     ],
     test_requires=[
+        "cloudify-dsl-parser==3.1a4"
         "nose"
     ]
 )

@@ -13,11 +13,15 @@
 #    * See the License for the specific language governing permissions and
 #    * limitations under the License.
 
-from cloudify.decorators import operation
 
-__author__ = 'ENTER-AUTHOR-NAME-HERE'
+# ctx is imported and used in operations
+from cloudify import ctx
+
+# put the operation decorator on any function that is a task
+from cloudify.decorators import operation
 
 
 @operation
-def my_task(ctx, **kwargs):
-    pass
+def my_task(some_property, **kwargs):
+    # setting node instance runtime property
+    ctx.runtime_properties['value_of_some_property'] = some_property
