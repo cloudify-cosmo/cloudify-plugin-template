@@ -13,11 +13,11 @@
 #    * See the License for the specific language governing permissions and
 #    * limitations under the License.
 
-from cloudify.decorators import operation
 
-__author__ = 'ENTER-AUTHOR-NAME-HERE'
+from cloudify import ctx
+from cloudify.decorators import operation
 
 
 @operation
-def my_task(ctx, **kwargs):
+def my_task(**kwargs):
     pass
