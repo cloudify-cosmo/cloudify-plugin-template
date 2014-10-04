@@ -14,7 +14,7 @@ plugins:
         # the source property should be set
         install: false
 
-        # source: url to archive containting the plugin or name of directory containing
+        # source: URL to archive containing the plugin or name of directory containing
         #         the plugin if it is included in the the blueprint directory under the
         #         "plugins" directory. Not required in testing environments as the plugin
         #         need not be installed on any agent

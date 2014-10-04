@@ -8,6 +8,7 @@ imports:
     # including it in the blueprint directory and importing it
     # instead.
     - http://www.getcloudify.org/spec/cloudify/3.1/types.yaml
+    # relative import of plugin.yaml that resides in the blueprint directory
     - plugin.yaml
 
 inputs:
