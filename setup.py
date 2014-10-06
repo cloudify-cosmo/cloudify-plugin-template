@@ -23,7 +23,7 @@ setup(
     # Do not use underscores in the plugin name.
     name='ENTER-PLUGIN-NAME-HERE',
 
-    version='3.1a5',
+    version='3.1a4',
     author='ENTER-AUTHOR-HERE',
     author_email='ENTER-AUTHOR-EMAIL-HERE',
     description='ENTER-DESCRIPTION-HERE',
@@ -35,10 +35,10 @@ setup(
     zip_safe=False,
     install_requires=[
         # Necessary dependency for developing plugins, do not remove!
-        "cloudify-plugins-common==3.1a5"
+        "cloudify-plugins-common==3.1a4"
     ],
     test_requires=[
-        "cloudify-dsl-parser==3.1a5"
+        "cloudify-dsl-parser==3.1a4"
         "nose"
     ]
 )
