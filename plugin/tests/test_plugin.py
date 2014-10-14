@@ -40,7 +40,7 @@ class TestPlugin(unittest.TestCase):
     def test_my_task(self):
 
         # execute install workflow
-        self.env.execute('install')
+        self.env.execute('install', task_retries=0)
 
         # extract single node instance
         instance = self.env.storage.get_node_instances()[0]
