@@ -24,11 +24,11 @@ node_templates:
         type: cloudify.types.base
         interfaces:
             cloudify.interfaces.lifecycle:
-                - start:
+                start:
                     # here we map the single plugin task to the start operation
                     # of the cloudify.interfaces.lifecycle interface
-                    mapping: plugin_name.plugin.tasks.my_task
-                    properties:
+                    implementation: plugin_name.plugin.tasks.my_task
+                    inputs:
                         # my_task accepts a single property named
                         # some property. Here we inject this property
                         # from the input provided by the test
