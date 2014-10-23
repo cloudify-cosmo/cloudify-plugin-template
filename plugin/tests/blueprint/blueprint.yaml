@@ -7,7 +7,7 @@ imports:
     # to speed things up, it is possible downloading this file,
     # including it in the blueprint directory and importing it
     # instead.
-    - https://raw.githubusercontent.com/cloudify-cosmo/cloudify-manager/CFY-1318-tosca-interfaces/resources/rest-service/cloudify/types/types.yaml
+    - http://www.getcloudify.org/spec/cloudify/3.1m5/types.yaml
     # relative import of plugin.yaml that resides in the blueprint directory
     - plugin.yaml
 
