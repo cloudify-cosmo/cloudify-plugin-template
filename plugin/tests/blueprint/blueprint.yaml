@@ -21,7 +21,7 @@ node_templates:
     # defining a single node template that will serve as our test node
     test_node_template:
         # using base cloudify type
-        type: cloudify.types.base
+        type: cloudify.nodes.Compute
         interfaces:
             cloudify.interfaces.lifecycle:
                 start:
