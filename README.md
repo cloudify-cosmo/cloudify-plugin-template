@@ -5,7 +5,7 @@ Cloudify plugin project template.
 
 ## Usage
 
-See [Plugin Authoring Guide](http://getcloudify.org/guide/3.1/guide-plugin-creation.html)
+See [Plugin Authoring Guide](http://getcloudify.org/guide/3.1/guide-plugin-creation.html#the-plugin-template)
 
 ## Tests
 
