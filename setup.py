@@ -21,24 +21,17 @@ from setuptools import setup
 setup(
 
     # Do not use underscores in the plugin name.
-    name='ENTER-PLUGIN-NAME-HERE',
+    name='cloudify-aws-plugin',
 
     version='0.1',
-    author='ENTER-AUTHOR-HERE',
-    author_email='ENTER-AUTHOR-EMAIL-HERE',
-    description='ENTER-DESCRIPTION-HERE',
+    description='Cloudify plugin for AWS infrastructure.',
 
     # This must correspond to the actual packages in the plugin.
-    packages=['plugin'],
+    packages=['aws_plugin_common'],
 
     license='LICENSE',
-    zip_safe=False,
     install_requires=[
-        # Necessary dependency for developing plugins, do not remove!
-        "cloudify-plugins-common==3.2a1"
-    ],
-    test_requires=[
-        "cloudify-dsl-parser==3.2a1"
-        "nose"
+        'cloudify-plugins-common==3.2a1',
+        'boto'
     ]
 )

@@ -1,13 +1,39 @@
-plugins:
-  # Name could be anything, this name is what appears on the beginning of operation
-  # mappings.
-  plugin_name:
-    # Could be 'central_deployment_agent' or 'host_agent'.
-    # If 'central_deployment_agent', this plugin will be executed on the
-    # deployment dedicated agent, other wise it will be executed on the host agent.
-    executor: host_agent
+##################################################################################
+# Cloudify AWS EC2 built in types and plugins definitions.
+##################################################################################
 
-    # URL to archive containing the plugin or name of directory containing
-    # the plugin if it is included in the the blueprint directory under the
-    # "plugins" directory.
-    source: https://github.com/cloudify-cosmo/cloudify-plugin-template/archive/master.zip
+plugins:
+  openstack:
+    executor: central_deployment_agent
+    source: https://github.com/earthmant/cloudify-boto-plugin/archive/master.zip
+
+node_types:
+  cloudify.aws-cloudify-plugin.aws_plugin_commons.Instance:
+    derived_from: cloudify.nodes.Compute
+    properties:
+      server:
+        default: {}
+      ami_image_id:
+      instance_type:
+      use_external_resource:
+        default: false
+      resource_id:
+        default: ''
+    interfaces:
+      cloudify.interfaces.lifecycle:
+        create:
+          implementation: aws-cloudify-plugin.aws_plugin_commons.Instance.run
+          inputs: {}
+        start:
+          implementation: aws-cloudify-plugin.aws_plugin_commons.Instance.start
+          inputs: {}
+        stop:
+          implementation: aws-cloudify-plugin.aws_plugin_commons.Instance.stop
+          inputs: {}
+        delete:
+          implementation: aws-cloudify-plugin.aws_plugin_commons.Instance.terminate
+          inputs: {}
+      cloudify.interfaces.validation:
+        creation:
+          implementation: aws-cloudify-plugin.aws_plugin_commons.Instance.creation_validation
+          inputs: {}
