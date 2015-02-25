@@ -35,10 +35,10 @@ setup(
     zip_safe=False,
     install_requires=[
         # Necessary dependency for developing plugins, do not remove!
-        "cloudify-plugins-common>=3.2a5"
+        "cloudify-plugins-common>=3.2a6"
     ],
     test_requires=[
-        "cloudify-dsl-parser>=3.2a5"
+        "cloudify-dsl-parser>=3.2a6"
         "nose"
     ]
 )
