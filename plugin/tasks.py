@@ -24,4 +24,4 @@ from cloudify.decorators import operation
 @operation
 def my_task(some_property, **kwargs):
     # setting node instance runtime property
-    ctx.instance.runtime_properties['value_of_some_property'] = some_property
+    ctx.instance.runtime_properties['some_property'] = 'value_of_some_property'
