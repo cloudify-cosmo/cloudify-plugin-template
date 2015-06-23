@@ -46,7 +46,7 @@ class TestPlugin(unittest.TestCase):
         instance = self.env.storage.get_node_instances()[0]
 
         # assert runtime properties is properly set in node instance
-        self.assertEqual(instance.runtime_properties['value_of_some_property'],
+        self.assertEqual(instance.runtime_properties['some_property'],
                          'new_test_input')
 
         # assert deployment outputs are ok
