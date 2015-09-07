@@ -39,4 +39,4 @@ outputs:
     # example output the could be used to simplify assertions by test
     test_output:
         description: an output for the test
-        value: { get_attribute: [test_node_template, value_of_some_property]}
+        value: { get_attribute: [test_node_template, some_property] }
