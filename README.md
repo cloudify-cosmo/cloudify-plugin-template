@@ -1,6 +1,7 @@
 cloudify-plugin-template
 ========================
 
+* Master [![Circle CI](https://circleci.com/gh/cloudify-cosmo/cloudify-plugin-template/tree/master.svg?style=shield)](https://circleci.com/gh/cloudify-cosmo/cloudify-plugin-template/tree/master)
 * Master Branch [![Build Status](https://travis-ci.org/cloudify-cosmo/cloudify-plugin-template.svg?branch=master)](https://travis-ci.org/cloudify-cosmo/cloudify-plugin-template)
 
 Cloudify plugin project template.
