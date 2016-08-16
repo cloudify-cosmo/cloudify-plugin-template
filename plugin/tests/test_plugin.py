@@ -23,8 +23,9 @@ from cloudify.test_utils import workflow_test
 class TestPlugin(unittest.TestCase):
 
     @workflow_test(path.join('blueprint', 'blueprint.yaml'),
-                   resources_to_copy=[path.join('blueprint',
-                                                'test_plugin.yaml')],
+                   resources_to_copy=[(path.join('blueprint', 'plugin',
+                                                 'test_plugin.yaml'),
+                                       'plugin')],
                    inputs={'test_input': 'new_test_input'})
     def test_my_task(self, cfy_local):
         # execute install workflow
