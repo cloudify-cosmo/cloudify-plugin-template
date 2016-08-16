@@ -9,7 +9,7 @@ imports:
     # instead.
     - http://www.getcloudify.org/spec/cloudify/3.5m1/types.yaml
     # relative import of plugin.yaml that resides in the blueprint directory
-    - test_plugin.yaml
+    - plugin/test_plugin.yaml
 
 inputs:
     # example input that could be injected by test
