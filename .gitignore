@@ -40,3 +40,6 @@ nosetests.xml
 .qbcache/
 
 .noseids
+
+# IDEA configuration
+.idea/
