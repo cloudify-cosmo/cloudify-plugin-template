@@ -7,7 +7,7 @@ imports:
     # to speed things up, it is possible downloading this file,
     # including it in the blueprint directory and importing it
     # instead.
-    - http://www.getcloudify.org/spec/cloudify/4.5/types.yaml
+    - http://www.getcloudify.org/spec/cloudify/4.5.1/types.yaml
     # relative import of plugin.yaml that resides in the blueprint directory
     - plugin/test_plugin.yaml
 
