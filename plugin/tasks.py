@@ -14,14 +14,9 @@
 #    * limitations under the License.
 
 
-# ctx is imported and used in operations
-from cloudify import ctx
-
-# put the operation decorator on any function that is a task
-from cloudify.decorators import operation
-
-
-@operation
-def my_task(some_property, **kwargs):
+# 'ctx' is always passed as a keyword argument to operations, so
+# your operation implementation must either specify it in the arguments
+# list, or accept '**kwargs'. Both are shown here.
+def my_task(ctx, some_property, **kwargs):
     # setting node instance runtime property
     ctx.instance.runtime_properties['some_property'] = some_property
