@@ -7,7 +7,7 @@ Cloudify plugin project template.
 
 ## Usage
 
-See [writing your own plugin](https://docs.cloudify.co/4.4.0/developer/writing_plugins/)
+See [writing your own plugin](https://docs.cloudify.co/latest/developer/writing_plugins/)
 
 ## Tests
 
