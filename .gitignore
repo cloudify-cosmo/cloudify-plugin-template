@@ -43,3 +43,6 @@ nosetests.xml
 
 # IDEA configuration
 .idea/
+
+# Cloudify wagon
+*.wgn

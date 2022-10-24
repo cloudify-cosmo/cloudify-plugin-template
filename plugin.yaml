@@ -5,7 +5,7 @@ plugins:
     # Could be 'central_deployment_agent' or 'host_agent'.
     # If 'central_deployment_agent', this plugin will be executed on the
     # deployment dedicated agent, other wise it will be executed on the host agent.
-    executor: host_agent
+    executor: central_deployment_agent
 
     # URL to archive containing the plugin or name of directory containing
     # the plugin if it is included in the the blueprint directory under the
@@ -18,9 +18,55 @@ plugins:
 
     # The plugin's name, as it is known to Cloudify Manager. Cloudify Manager uses this
     # name to index the plugin in the plugins table.
-    package_name: 'my-plugin'
+    package_name: 'ENTER-PLUGIN-NAME-HERE'
 
     # The plugin's version. NOTE - it is recommended that this value is quoted, in order to
     # ensure it passes YAML parsing as a string (by default, the value "1.0" [without quotes]
     # will be parsed as a float).
     package_version: '1.0'
+
+data_types:
+
+  # you can build your data types for the properties that you will use inside the node_types
+  cloudify.types.template.MockedConfig:
+    properties:
+      mock_host:
+        description: mock host.
+        type: string
+        default: ''
+        required: true
+      mock_username:
+        description: mock username.
+        type: string
+        default: ''
+      mock_password:
+        description: mock password.
+        type: string
+        default: ''
+
+dsl_definitions:
+
+  # you can define custom dsl defintions 
+  # [ anchors that you can use to define common values or definitions between node definitions ]
+  host_config: &host_config
+    host_config:
+      type: cloudify.types.template.MockedConfig
+      description: Your mocked host configuration.
+      required: true
+
+node_types:
+
+  # you can define your node_types here 
+  cloudify.nodes.template.MockHost:
+    # you can use the derived_form 
+    # [ to inherit the properties and interfaces of the node you are referencing ]
+    derived_from: cloudify.nodes.Root
+    # here you can add the properties that is relevant for you to interact with from the plugin python code
+    properties:
+      <<: *host_config
+    interfaces:
+      # you can define the lifecycle operation 
+      # and whatever operation that you may need this node_type to support
+      cloudify.interfaces.lifecycle:
+        create:
+          implementation: plugin_name.plugin.tasks.my_task

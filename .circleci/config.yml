@@ -1,4 +1,7 @@
-version: 2
+version: 2.1
+
+orbs:
+  node: cloudify/public-unittest-orb@1 #orb version
 
 checkout:
   post:
@@ -9,35 +12,9 @@ checkout:
         git checkout -qf FETCH_HEAD
       fi
 
-defaults:
-  - &test_defaults
-    docker:
-      - image: circleci/python:2.7
-
-    steps:
-      - checkout
-      - run:
-          name: Install tox
-          command: sudo pip install tox
-      - run:
-          name: Run tox of specfic environment
-          command: python -m tox -e $DO_ENV
-
-jobs:
-  flake8:
-    <<: *test_defaults
-    environment:
-      DO_ENV: flake8
-
-  test:
-    <<: *test_defaults
-    environment:
-      DO_ENV: py27
-
 workflows:
   version: 2
-
-  build_and_test:
+  tests:
     jobs:
-      - flake8
-      - test
+      - node/check_py3_compat_job
+      - node/unittests_job
