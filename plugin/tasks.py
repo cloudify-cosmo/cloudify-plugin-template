@@ -1,22 +1,42 @@
-########
-# Copyright (c) 2014 GigaSpaces Technologies Ltd. All rights reserved
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#        http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-#    * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#    * See the License for the specific language governing permissions and
-#    * limitations under the License.
-
+# you can use the decorators that gives the ability
+# to mark the task as resumable or not
+from cloudify.decorators import operation
+# you can use the exeption logic to mark the operation final status
+# [ as it will affect the workflow execution] you can raise according
+# to your logic could be `RecoverableError` if you want you code to do retries
+# and wait for a certian period of time or `NonRecoverableError`
+# which means mark this operation as failure and stop the flow right there
+# unless you set ignore_failure flag as true on the workflow trigger
+from cloudify.exceptions import NonRecoverableError
 
 # 'ctx' is always passed as a keyword argument to operations, so
 # your operation implementation must either specify it in the arguments
 # list, or accept '**kwargs'. Both are shown here.
-def my_task(ctx, some_property, **kwargs):
-    # setting node instance runtime property
-    ctx.instance.runtime_properties['some_property'] = some_property
+
+
+@operation
+def my_task(ctx, **kwargs):
+    # getting some values from passed properties
+    host_config = ctx.node.properties.get('host_config', {})
+    mock_host = host_config.get('mock_host', '')
+    mock_user = host_config.get('mock_username', '')
+    mock_pass = host_config.get('mock_password', '')
+
+    # you can use the cloudify context logger
+    ctx.logger.info('Got these values for host {0} , user {1} , '
+                    'password {2}'.format(mock_host, mock_user, mock_pass))
+
+    # you can put here what is the actual task defintion
+    # that you want to implement
+    if mock_host and mock_host and mock_pass:
+        # do something useful with that properties values
+        ctx.instance.runtime_properties['connection_status'] = \
+                'Connection Established'
+    else:
+        ctx.instance.runtime_properties['connection_status'] = \
+            'Connection Failed'
+        ctx.instance.runtime_properties['failure_reason'] = \
+            'invalid or empty inputs'
+        # or raise an error that will stop the workflow due to failure
+        raise NonRecoverableError('Invalid inputs were passed '
+                                  'to this operation')

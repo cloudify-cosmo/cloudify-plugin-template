@@ -1,0 +1,34 @@
+tosca_definitions_version: cloudify_dsl_1_4
+
+imports:
+  - cloudify/types/types.yaml
+  # you import you plugin after building the wagon 
+  # and uploading it to the manager
+  - plugin:ENTER-PLUGIN-NAME-HERE
+
+inputs:
+
+  host_ip:
+    type: string
+    default: 'localhost'
+  host_username:
+    type: string
+    default: 'my_user'
+  host_password:
+    type: string
+    default: 'super_secret_password' # you can also use {get_secret: my_password} for example
+
+dsl_definitions:
+
+  host_config: &host_config
+    mock_host: {get_input: host_ip}
+    mock_username: {get_input: host_username}
+    mock_password: {get_input: host_password}
+
+node_templates:
+
+  # actual node to be created with the type defined in the plugin
+  server_check:
+    type: cloudify.nodes.template.MockHost
+    properties:
+      host_config: *host_config

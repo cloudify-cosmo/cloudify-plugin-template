@@ -1,3 +1,6 @@
 git+https://github.com/cloudify-cosmo/cloudify-common@master#egg=cloudify-common==7.0.0.dev1
 pyyaml
 nose
+nose-cov
+#mock
+flake8
