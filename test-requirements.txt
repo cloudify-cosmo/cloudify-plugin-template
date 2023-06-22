@@ -1,4 +1,4 @@
-git+https://github.com/cloudify-cosmo/cloudify-common@7.0.1-build#egg=cloudify-common==7.0.1.dev1
+git+https://github.com/cloudify-cosmo/cloudify-common@7.0.1-build#egg=cloudify-common==7.0.1
 pyyaml
 nose
 nose-cov
