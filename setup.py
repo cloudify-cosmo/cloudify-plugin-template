@@ -55,10 +55,10 @@ setup(
     zip_safe=False,
     install_requires=[
         # Necessary dependency for developing plugins, do not remove!
-        "cloudify-common>=7.0.3"
+        "cloudify-common>=7.0.4.dev1"
     ],
     test_requires=[
-        "cloudify-common>=7.0.3",
+        "cloudify-common>=7.0.4.dev1",
         "nose"
     ]
 )
